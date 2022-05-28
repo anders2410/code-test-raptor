@@ -11,7 +11,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 0 }}>
       <AppBar position="static" sx={{ backgroundColor: "#17233E" }}>
         <Toolbar>
           <IconButton

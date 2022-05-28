@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 interface Props {
   children: React.ReactNode;
@@ -9,9 +9,11 @@ interface Props {
 
 const Page = ({ children }: Props) => {
   return (
-    <Grid container flexDirection="column">
+    <Grid container flexDirection="column" sx={{ minHeight: "100vh" }}>
       <Header />
-      {children}
+      <Container maxWidth="lg" sx={{ margin: "20px auto auto auto" }}>
+        {children}
+      </Container>
       <Footer />
     </Grid>
   );

@@ -8,11 +8,15 @@ const Footer = () => {
       flexDirection="column"
       alignItems="center"
       component="footer"
-      sx={{ px: 2, mb: 3, mt: "auto" }}
+      sx={{ px: 2, mb: 3, mt: "20px" }}
     >
       <Typography sx={{ paddingBottom: "10px " }}>
         Provided by{" "}
-        <Link href="https://appseed.us" underline="none">
+        <Link
+          href="https://github.com/anders2410"
+          underline="none"
+          sx={{ color: "#C80046" }}
+        >
           Anders Holt
         </Link>
       </Typography>
