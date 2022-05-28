@@ -1,45 +1,58 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import "./App.css";
+import { CssBaseline } from "@mui/material";
+import CardsPage, { Card } from "./pages/CardsPage";
+import { useCallback, useEffect, useState } from "react";
+import axios from "axios";
+
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import EntryPage from "./pages/EntryPage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [cards, setCards] = useState<Card[]>([]);
+
+  const getData = useCallback(async () => {
+    try {
+      const res = await axios.get(
+        "https://mocki.io/v1/d8cf29f5-a27d-41a0-b3ba-d8784ba55429"
+      );
+      // Simulating a slow call to the backend.
+      //setTimeout(() => setCards(res.data), 2000);
+      setCards(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const saveCard = (card: Card) => {
+    console.log("Is this not called?");
+    const existingElementIndex = cards.findIndex((c) => c.name === card.name);
+    if (existingElementIndex !== -1) {
+      cards[existingElementIndex] = card;
+    } else {
+      setCards((cards) => [card, ...cards]);
+    }
+  };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+    <Router>
+      <CssBaseline />
+      <Routes>
+        <Route path="/" element={<CardsPage cards={cards} />} />
+        <Route
+          path="entry/:entryId"
+          element={<EntryPage cards={cards} saveCard={saveCard} />}
+        />
+        <Route
+          path="entry"
+          element={<EntryPage cards={cards} saveCard={saveCard} />}
+        />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
