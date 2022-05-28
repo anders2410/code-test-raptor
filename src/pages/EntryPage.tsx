@@ -57,7 +57,10 @@ const EntryPage = ({ cards, saveCard }: Props) => {
 
   return (
     <Page>
-      <Paper elevation={2} sx={{ minHeight: "80vh", padding: "30px" }}>
+      <Paper
+        elevation={2}
+        sx={{ minHeight: "80vh", padding: "30px", backgroundColor: "#f3f3f5" }}
+      >
         <Box
           display="flex"
           justifyContent="center"
@@ -80,7 +83,7 @@ const EntryPage = ({ cards, saveCard }: Props) => {
                 label="Name"
                 value={name}
                 onChange={onNameChange}
-                sx={{ width: "30ch" }}
+                sx={{ width: "30ch", backgroundColor: "white" }}
               />
               <TextField
                 required
@@ -88,7 +91,7 @@ const EntryPage = ({ cards, saveCard }: Props) => {
                 label="Category"
                 value={category}
                 onChange={onCategoryChange}
-                sx={{ width: "30ch" }}
+                sx={{ width: "30ch", backgroundColor: "white" }}
               />
               <TextField
                 required
@@ -96,7 +99,7 @@ const EntryPage = ({ cards, saveCard }: Props) => {
                 label="Created by"
                 value={createdBy}
                 onChange={onCreatedByChange}
-                sx={{ width: "30ch" }}
+                sx={{ width: "30ch", backgroundColor: "white" }}
               />
             </Stack>
             <TextField
@@ -108,7 +111,7 @@ const EntryPage = ({ cards, saveCard }: Props) => {
               multiline
               rows={8}
               onChange={onDescriptionChange}
-              sx={{ width: "30ch" }}
+              sx={{ width: "30ch", backgroundColor: "white" }}
             />
           </Stack>
           <Box>
