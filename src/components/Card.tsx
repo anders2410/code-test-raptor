@@ -41,7 +41,7 @@ const Card = ({ card, onCardClick }: Props) => {
             <Stack direction="row" alignItems="center" mb="5px">
               {getIcon(card.name)}
               <Typography
-                ml="5px"
+                ml="10px"
                 fontWeight="bold"
                 variant="h5"
                 component="div"

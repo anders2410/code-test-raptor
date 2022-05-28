@@ -4,8 +4,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Button, IconButton } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
+import { House } from "@mui/icons-material";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export default function Header() {
             onClick={() => navigate("/")}
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <House />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Code Test Raptor
