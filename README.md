@@ -14,3 +14,6 @@ before, it thought it would give too much overhead for this test.
 Instead, I went with the simple solution; to handle the state in `<App />`. Preferably, I would
 load data from the backend, and when editing/creating new data I would save it to the backend,
 and then retrieve it again. Making the backend responsible for handling all data.
+
+### How to run
+First do a `npm install` and then `npm run dev`.
