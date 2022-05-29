@@ -19,20 +19,20 @@ interface Props {
 const EntryPage = ({ cards, saveCard }: Props) => {
   const { entryId } = useParams();
   const navigate = useNavigate();
-  const entry = cards.find((c) => c.name === entryId);
+  const card = cards.find((c) => c.name === entryId);
 
-  const [name, setName] = useState(entry?.name ?? "");
-  const [description, setDescription] = useState(entry?.description ?? "");
-  const [category, setCategory] = useState(entry?.category ?? "");
-  const [createdBy, setCreatedBy] = useState(entry?.createdBy ?? "");
+  const [name, setName] = useState(card?.name ?? "");
+  const [description, setDescription] = useState(card?.description ?? "");
+  const [category, setCategory] = useState(card?.category ?? "");
+  const [createdBy, setCreatedBy] = useState(card?.createdBy ?? "");
 
-  // Could be removed with a Loader and call to the backend.
+  // Could be removed with a Loader.
   useEffect(() => {
-    setName(entry?.name ?? "");
-    setDescription(entry?.description ?? "");
-    setCategory(entry?.category ?? "");
-    setCreatedBy(entry?.createdBy ?? "");
-  }, [entry]);
+    setName(card?.name ?? "");
+    setDescription(card?.description ?? "");
+    setCategory(card?.category ?? "");
+    setCreatedBy(card?.createdBy ?? "");
+  }, [card]);
 
   const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -70,7 +70,7 @@ const EntryPage = ({ cards, saveCard }: Props) => {
           component="form"
         >
           <Typography variant="h4" component="div">
-            {entry != null ? "Edit this card" : "Create a new card"}
+            {card != null ? "Edit this card" : "Create a new card"}
           </Typography>
           <Stack
             direction={{ xs: "column", sm: "row" }}

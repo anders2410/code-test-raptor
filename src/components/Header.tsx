@@ -28,7 +28,7 @@ export default function Header() {
             Code Test Raptor
           </Typography>
           <Button onClick={() => navigate("/entry")} color="inherit">
-            Create New Entry
+            Create New Card
           </Button>
         </Toolbar>
       </AppBar>

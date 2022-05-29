@@ -8,13 +8,14 @@ import {
   Typography,
 } from "@mui/material";
 import { CardType } from "../pages/CardsPage";
-import { Facebook, Info, QuestionMark } from "@mui/icons-material";
+import { Facebook, QuestionMark } from "@mui/icons-material";
 
 interface Props {
   card: CardType;
   onCardClick: (id: string) => void;
 }
 
+// I wanted to show logos of all cards, but only "Facebook" was available with 'icons-material'.
 const getIcon = (name: string) => {
   switch (name) {
     case "Facebook":

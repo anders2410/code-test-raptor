@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Page from "../components/Page";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
@@ -24,6 +24,9 @@ const CardsPage = ({ cards }: Props) => {
 
   return (
     <Page>
+      <Typography variant="h3" fontWeight="bold" mb="30px">
+        Social Media
+      </Typography>
       <Grid container spacing={3}>
         {cards.map((card) => (
           <Grid item xs={12} sm={6} md={3}>
